@@ -1,0 +1,41 @@
+{% extends 'sample_app/base_1.html' %}
+ 
+{% block title %} New list {% endblock title %}
+ 
+{% block content %}
+<h2>Вы действительно хотите удалить данный new?</h2>
+<table>
+    <thead>
+        <th>
+            Name
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Time
+        </th>
+    </thead>
+    <tr>
+        <td>
+            {{ new.name|title }}
+        </td>
+        <td>
+            {{ new.category.name|title }}
+        </td>
+        <td>
+            {{ new.description }}
+        </td>
+        <td>
+            {{ new.auto_time }}
+        </td>
+    </tr>
+</table>
+ 
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить"></form>
+{% endblock content %} 
